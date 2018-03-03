@@ -55,7 +55,11 @@ add_action( 'wp_enqueue_scripts', 'summit_enqueue_scripts_styles' );
  */
 function summit_enqueue_scripts_styles() {
 
-	wp_enqueue_style( 'summit-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700', array(), CHILD_THEME_VERSION );
+	// Add Google Fonts
+    wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,400i,600,700', array(), CHILD_THEME_VERSION );
+
+	// wp_enqueue_style( 'summit-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700', array(), CHILD_THEME_VERSION );
+	
 	wp_enqueue_style( 'dashicons' );
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
@@ -170,7 +174,7 @@ function summit_remove_customizer_settings( $config ) {
 }
 
 // Displays custom logo.
-add_action( 'genesis_site_title', 'the_custom_logo', 5 );
+// add_action( 'genesis_site_title', 'the_custom_logo', 5 );
 
 // Repositions primary navigation menu.
 remove_action( 'genesis_after_header', 'genesis_do_nav' );

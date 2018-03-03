@@ -10,7 +10,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
  
-add_action( 'genesis_header', 'summit_site_logo' );
+add_action( 'genesis_header', 'summit_site_logo', 5 );
 function summit_site_logo() {
     
     // If the custom logo function and custom logo exist, set the logo image element inside the wrapping tags.
@@ -35,4 +35,30 @@ function summit_site_logo() {
 
         printf( '<div class="site-logo" itemscope itemtype="http://schema.org/Organization">%s</div>', $header_image );
 	}
+}
+
+// Open markup for site banner after header
+add_action('genesis_after_header', 'summit_site_banner_markup_open', 5 );
+function summit_site_banner_markup_open() {
+    printf( '<div %s>', genesis_attr( 'site-banner' ) );
+}
+
+// Close markup for site banner
+add_action('genesis_after_header', 'summit_site_banner_markup_close', 15 );
+function summit_site_banner_markup_close() {
+	echo '</div>';
+}
+
+// Add an extra div class inside the header wrap.
+add_filter( 'genesis_structural_wrap-header', 'summit_structural_wrap_header_flexbox', 10, 2);
+function summit_structural_wrap_header_flexbox( $output, $original_output ) {
+
+    if( 'open' == $original_output ) {
+        $output = $output . '<div class="flexbox"><!-- begin flexbox -->';
+    }
+  
+    if( 'close' == $original_output ) {
+        $output = '</div><!-- end flexbox -->' . $output;
+    }
+    return $output;
 }
