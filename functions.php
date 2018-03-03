@@ -28,6 +28,12 @@ function summit_localization_setup() {
 
 }
 
+// Defines the child theme (do not remove).
+define( 'CHILD_THEME_NAME', 'Summit Three' );
+define( 'CHILD_THEME_URL', 'https://www.dottaware.net/' );
+define( 'CHILD_THEME_VERSION', '0.0.1' );
+
+
 // Adds helper functions.
 require_once get_stylesheet_directory() . '/lib/helper-functions.php';
 
@@ -37,10 +43,9 @@ require_once get_stylesheet_directory() . '/lib/customize.php';
 // Includes Customizer CSS.
 require_once get_stylesheet_directory() . '/lib/output.php';
 
-// Defines the child theme (do not remove).
-define( 'CHILD_THEME_NAME', 'Summit Three' );
-define( 'CHILD_THEME_URL', 'https://www.dottaware.net/' );
-define( 'CHILD_THEME_VERSION', '0.0.1' );
+// Load page header.
+include_once( get_stylesheet_directory() . '/includes/header.php' );
+
 
 add_action( 'wp_enqueue_scripts', 'summit_enqueue_scripts_styles' );
 /**
