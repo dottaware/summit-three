@@ -1,3 +1,3 @@
-# Summit Three Genesis Theme Changelog
+# Summit Three Theme Changelog
 
 ## [Unreleased]
