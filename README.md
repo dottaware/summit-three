@@ -1,4 +1,4 @@
-# Summit Three - Wordpress / Genesis Theme
+# Summit Three - Genesis Theme
 
 Github project link: https://github.com/dottaware/summit-three
 
